@@ -1,20 +1,15 @@
 from pytube import YouTube
 
-print("Open Source Youtube Downloader, A7AVIND")
+def download(link):
+    try:
+        yt = YouTube(link).streams
+        video_stream = yt.get_highest_resolution()
+        video_stream.download()
+        print("Descarga Completa", "Video descargado satisfactoriamente!")
+    except Exception as e:
+        print("Error", f"Ha ocurrido un error: {str(e)}")
 
-url=input("Video link goes here : ")
-print("video link is %s"  % url)
-path=input("enter file destination")
-print("downloading to %s" %path)
-
-
-
-print("Downloading")
-
-
-
-
-try:
-    YouTube(url).streams.first().download(path)
-except:
-    print("Unfinished due to errors")
+if __name__ == '__main__':
+    link = input("Link de Youtube AQUI:")
+    download(link)
+    
