@@ -1,4 +1,4 @@
-import pytube
+from pytube import YouTube
 import streamlit as st
 
 class YoutubeDownloader:
